@@ -1,0 +1,102 @@
+@import './mixins.scss';
+
+.bg-container {
+    @include fixedBg();
+}
+// icon
+.btn-icon {
+    position: relative;
+    display: inline-block;
+    font: normal normal normal 14px/1 "vant-icon";
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+.cut-icon {
+    background-image: url('../img/icon/cut-icon-1.png');
+}
+.add-icon {
+    background-image: url('../img/icon/add-icon-1.png');
+}
+
+// 购物车 按钮跟金钱样式
+.goods-cat-btn {
+    @include flexBox(space-between);
+    .btn-price {
+        color: $color_price;
+        font-size: $font_h1;
+        font-weight: bold;
+    }
+    .btn-all {
+        @include flexBox();
+        .btn-icon {
+            width: 22px;
+            height: 22px;
+        }
+        .btn-all-num {
+            display: inline-flex;
+            width: 26px;
+            height: 22px;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+}
+.order-list {
+    ul {
+        background: #fff;
+        li {
+            @include flexBox(space-between);
+            margin-bottom: 7px;
+            padding: 10px 20px;
+            height: 80px;
+            background: #f6f6f6;
+            &:last-child{
+                margin-bottom: 0;
+            }
+            .li-img {
+                @include setBox(60px, 55px);
+                margin-right: 15px;
+                img {
+                    @include setBox();
+                }
+            }
+            .li-info {
+                flex: 1;
+                height: 55px;
+                padding: 2px 0;
+                @include flexBox(space-between, normal);
+                flex-direction: column;
+                >div {
+                    @include flexBox(space-between);
+                }
+                .li-info-title {
+                    font-size: $font_p;
+                }
+                .li-info-num {
+                    font-size: $font_m;
+                    color: #666;
+                }
+            }
+        }
+    }
+    .sum_money {
+        padding: 0 15px;
+        background: #fff;
+        text-align: right;
+        height: 40px;
+        line-height: 40px;
+        span {
+            color: $color_price;
+        }
+    }
+}
+
+// 全局覆盖vant组件样式
+.van-picker {
+    .van-picker__cancel, .van-picker__confirm {
+        color: $color_active;
+    }
+}

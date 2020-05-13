@@ -1,2 +1,19 @@
-# vue-Starbucks
-一个点餐的移动端（仿一点点奶茶点餐系统），功能已实现， 不断优化中...   如果对你的学习有参考价值，请点个星
+# temppro
+
+## Project setup
+```
+npm install
+```
+
+### Compiles and hot-reloads for development
+```
+npm run serve
+```
+
+### Compiles and minifies for production
+```
+npm run build
+```
+
+### Customize configuration
+See [Configuration Reference](https://cli.vuejs.org/config/).
