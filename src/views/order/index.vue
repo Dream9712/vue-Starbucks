@@ -11,8 +11,7 @@
             </li>
         </ul>
         <div class="order-content">
-            <OrderLi v-if="orderLists.length > 0" />
-            <div class="no-content" v-else>暂无订单</div>
+            <OrderLi :types="tabIdx" />
         </div>
     </div>
 </template>
@@ -77,11 +76,6 @@ export default {
                 border-bottom-right-radius: 2px;
             }
         }
-    }
-    .no-content {
-        font-size: $font_h1;
-        color: #666;
-        padding-top: 100px;
     }
 }
 </style>

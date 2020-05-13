@@ -95,7 +95,10 @@ export default {
             this.loadding = true
             /* 以为忽略支付 直接跳转 */
             let orderId = Date.parse(new Date())
+            // 点餐 1   外卖2
+            let goodsType = this.$route.query.type || 1
             let data = {
+                goodsType,
                 type: '微信',
                 orderId,
                 createTimer: orderId,

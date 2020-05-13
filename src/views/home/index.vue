@@ -4,8 +4,8 @@
             <Banner :list="bannerList" />
         </div>
         <div class="home-btn">
-            <router-link to="/goods">点餐</router-link>
-            <router-link to="/goods">外卖</router-link>
+            <router-link to="/goods?type=1">点餐</router-link>
+            <router-link to="/goods?type=2">外卖</router-link>
         </div> 
     </div>
 </template>

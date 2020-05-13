@@ -46,6 +46,9 @@ import { mapState, mapMutations, mapActions, mapGetters } from 'vuex'
 import { classList } from '@/utils/goods'
 export default {
     props: {
+        visible: {
+            type: Boolean
+        },
         dataInfo: {
             type: Object,
             required: true
@@ -68,6 +71,13 @@ export default {
                 return this.classList[i].list[r]
             })
             return list.join('/')
+        }
+    },
+    watch: {
+        visible (val) {
+            if (val) {
+                this.selected = [0, 0, 0, null]
+            }
         }
     },
     methods: {

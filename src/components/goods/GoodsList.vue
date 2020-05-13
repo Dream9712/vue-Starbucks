@@ -50,7 +50,10 @@ export default {
 		// 去结算
 		commitPay () {
 			if (this.carCount < 1) return;
-			this.$router.push({ path: '/goodsPay' })
+			this.$router.push({ 
+				path: '/goodsPay',
+				query: this.$route.query
+			})
 		}
 	},
 }

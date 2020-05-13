@@ -66,7 +66,7 @@
             position="bottom"
             :style="{ height: '70%' }"
         >
-            <GoodsRule :dataInfo="selectData" @close="visible = false"/>
+            <GoodsRule :visible="visible" :dataInfo="selectData" @close="visible = false"/>
         </van-popup>
         <!-- 底部购物车 -->
         <GoodsList />
@@ -132,7 +132,7 @@ export default {
         background: $color_active;
         color: #fff;
         font-size: $font_p;
-        @include flexBox(flex-start, start);
+        @include flexBox();
         padding: 10px 20px;
         z-index: 19;
     }

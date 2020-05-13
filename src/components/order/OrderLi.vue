@@ -1,8 +1,8 @@
 <template>
     <div class="order-li-content">
-        <ul>
+        <ul v-if="orderList.length > 0">
             <li
-                v-for="(item, index) in orderLists"
+                v-for="(item, index) in orderList"
                 :key="index"
             >
                 <van-cell value="订单已完成">
@@ -41,14 +41,20 @@
                     </div>
                 </div>
             </li>
-        </ul>
+        </ul>                                       
+        <div v-else class="no-content">暂无订单</div>
     </div>
 </template>
 
 <script>
 import { mapGetters } from 'vuex'
 export default {
-    // props: [],
+    props: {
+        types: {
+            type: Number,
+            default: 1
+        }
+    },
     data () {
         return { }
     },
@@ -56,9 +62,9 @@ export default {
         ...mapGetters([
 			'orderLists',
         ]),
-    },
-    created () {
-
+        orderList () {
+            return this.orderLists.filter(r => r.goodsType == this.types + 1)
+        }
     },
     methods: {
         // 只取前面三个
@@ -138,61 +144,10 @@ export default {
             }
         }
     }
-}
-
-.order_box{
-    margin-top: 5px;
-}
-.order_text{
-    margin: 0 0 2px 0;
-    position: relative;
-    display: flex;
-    box-sizing: border-box;
-    width: 100%;
-    padding: 10px 16px;
-    overflow: hidden;
-    color: #323233;
-    font-size: 14px;
-    line-height: 24px;
-    background-color: #fff;
-    justify-content: space-between;
-}
-
-.order_title span{
-       font-size: 15px;
-}
-.order_desc{
-    position: relative;
-    display: flex;
-    box-sizing: border-box;
-    width: 100%;
-    padding: 10px 16px;
-    overflow: hidden;
-    color: #323233;
-    font-size: 14px;
-    line-height: 24px;
-    background-color: #fff;
-    justify-content: space-between;
-}
-.order_desc div span{
-        font-size: 15px;
-}
-.order_desc div:nth-child(2) span:nth-child(1){
-    margin-right: 10px;
-}
-.order_list{
-    background: #fff;
-    margin-bottom: 5px;
-}
-.odright{
-    padding-right: 15px;
-    text-align: right;
-}
-.pl_btn{
-    float: right;
-    padding: 5px 20px;
-    border: 2px solid #e1e1e1;
-    border-radius: 3px;
-    margin: 10px 15px 10px 0;
+    .no-content {
+        font-size: $font_h1;
+        color: #666;
+        padding-top: 100px;
+    }
 }
 </style>

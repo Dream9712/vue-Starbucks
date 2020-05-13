@@ -51,7 +51,8 @@ export default {
         position: absolute;
         left: 0px;
         @include setBox($head_px, $head_px);
-        @include flexBox(start);
+        @include flexBox();
+        justify-self: start;
         padding-left: 12px;
         i {
             font-size: $font_max;
